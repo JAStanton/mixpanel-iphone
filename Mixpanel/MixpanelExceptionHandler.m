@@ -78,13 +78,14 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 }
 
 - (void)setupHandlers {
-    NSSetUncaughtExceptionHandler(&MPHandleException);
-    signal(SIGABRT, MPSignalHandler);
-    signal(SIGILL, MPSignalHandler);
-    signal(SIGSEGV, MPSignalHandler);
-    signal(SIGFPE, MPSignalHandler);
-    signal(SIGBUS, MPSignalHandler);
-    signal(SIGPIPE, MPSignalHandler);
+    // Getting in the way of react-native-sentry global exception handler.
+    // NSSetUncaughtExceptionHandler(&MPHandleException);
+    // signal(SIGABRT, MPSignalHandler);
+    // signal(SIGILL, MPSignalHandler);
+    // signal(SIGSEGV, MPSignalHandler);
+    // signal(SIGFPE, MPSignalHandler);
+    // signal(SIGBUS, MPSignalHandler);
+    // signal(SIGPIPE, MPSignalHandler);
 }
 
 - (void)addMixpanelInstance:(Mixpanel *)instance {
